@@ -1,0 +1,12 @@
+CREATE TABLE aquaculture_info (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    farmer_name VARCHAR(255) NOT NULL,
+    species VARCHAR(255) NOT NULL,
+    scale VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    contact_number VARCHAR(20),
+    start_date DATE,
+    remarks TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
