@@ -72,6 +72,7 @@
     <a href="#market-management" onclick="showSection('market-management')">交易市场管理</a>
     <a href="#transaction-management" onclick="showSection('transaction-management')">交易管理</a>
     <a href="#other-management" onclick="showSection('other-management')">其他管理</a>
+    <a href="#member-registration" onclick="showSection('member-registration')">会员注册</a>
 </div>
 
 <div class="container">
@@ -79,108 +80,160 @@
         <h2>供应商管理</h2>
         <p>在此处添加供应商管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addSupplier()">添加</button>
+            <button onclick="deleteSupplier()">删除</button>
+            <button onclick="updateSupplier()">修改</button>
+            <button onclick="querySupplier()">查询</button>
+        </div>
+        <!-- 用于输入供应商信息的表单 -->
+        <div id="addSupplierForm">
+            <label for="name">姓名:</label>
+            <input type="text" id="name"><br>
+            <label for="address">地址:</label>
+            <input type="text" id="address"><br>
+            <label for="contactNumber">联系电话:</label>
+            <input type="text" id="contactNumber"><br>
+            <label for="email">电子邮件:</label>
+            <input type="text" id="email"><br>
+            <label for="companyName">公司名称:</label>
+            <input type="text" id="companyName"><br>
         </div>
     </div>
+
     <div class="section" id="buyer-management">
         <h2>采购商管理</h2>
         <p>在此处添加采购商管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addBuyer()">添加</button>
+            <button onclick="deleteBuyer()">删除</button>
+            <button onclick="updateBuyer()">修改</button>
+            <button onclick="queryBuyer()">查询</button>
+        </div>
+        <!-- 用于输入采购商信息的表单 -->
+        <div id="addBuyerForm">
+            <label for="buyerName">姓名:</label>
+            <input type="text" id="buyerName"><br>
+            <label for="buyerContactNumber">联系电话:</label>
+            <input type="text" id="buyerContactNumber"><br>
+            <label for="buyerEmail">电子邮件:</label>
+            <input type="text" id="buyerEmail"><br>
         </div>
     </div>
+
     <div class="section" id="farming-info">
         <h2>养殖信息发布</h2>
         <p>在此处添加养殖信息发布相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addFarmingInfo()">添加</button>
+            <button onclick="deleteFarmingInfo()">删除</button>
+            <button onclick="updateFarmingInfo()">修改</button>
+            <button onclick="queryFarmingInfo()">查询</button>
+        </div>
+        <!-- 用于输入养殖信息的表单 -->
+        <div id="addFarmingInfoForm">
+            <label for="farmingName">养殖名称:</label>
+            <input type="text" id="farmingName"><br>
+            <label for="farmingDetails">养殖详情:</label>
+            <input type="text" id="farmingDetails"><br>
         </div>
     </div>
+
     <div class="section" id="purchase-info">
         <h2>采购信息发布管理</h2>
         <p>在此处添加采购信息发布管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addPurchaseInfo()">添加</button>
+            <button onclick="deletePurchaseInfo()">删除</button>
+            <button onclick="updatePurchaseInfo()">修改</button>
+            <button onclick="queryPurchaseInfo()">查询</button>
+        </div>
+        <!-- 用于输入采购信息的表单 -->
+        <div id="addPurchaseInfoForm">
+            <label for="purchaseTitle">采购标题:</label>
+            <input type="text" id="purchaseTitle"><br>
+            <label for="purchaseDetails">采购详情:</label>
+            <input type="text" id="purchaseDetails"><br>
         </div>
     </div>
+
     <div class="section" id="help-info">
         <h2>帮助信息发布管理</h2>
         <p>在此处添加帮助信息发布管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addHelpInfo()">添加</button>
+            <button onclick="deleteHelpInfo()">删除</button>
+            <button onclick="updateHelpInfo()">修改</button>
+            <button onclick="queryHelpInfo()">查询</button>
+        </div>
+        <!-- 用于输入帮助信息的表单 -->
+        <div id="addHelpInfoForm">
+            <label for="helpTitle">帮助标题:</label>
+            <input type="text" id="helpTitle"><br>
+            <label for="helpDetails">帮助详情:</label>
+            <input type="text" id="helpDetails"><br>
         </div>
     </div>
+
     <div class="section" id="news-events">
         <h2>资讯及活动管理</h2>
         <p>在此处添加资讯及活动管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addNewsEvent()">添加</button>
+            <button onclick="deleteNewsEvent()">删除</button>
+            <button onclick="updateNewsEvent()">修改</button>
+            <button onclick="queryNewsEvent()">查询</button>
+        </div>
+        <!-- 用于输入资讯及活动信息的表单 -->
+        <div id="addNewsEventForm">
+            <label for="newsTitle">资讯标题:</label>
+            <input type="text" id="newsTitle"><br>
+            <label for="newsDetails">资讯详情:</label>
+            <input type="text" id="newsDetails"><br>
         </div>
     </div>
+
     <div class="section" id="gov-data">
         <h2>政府数据查询管理</h2>
         <p>在此处添加政府数据查询管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addGovData()">添加</button>
+            <button onclick="deleteGovData()">删除</button>
+            <button onclick="updateGovData()">修改</button>
+            <button onclick="queryGovData()">查询</button>
+        </div>
+        <!-- 用于输入政府数据的表单 -->
+        <div id="addGovDataForm">
+            <label for="govDataTitle">数据标题:</label>
+            <input type="text" id="govDataTitle"><br>
+            <label for="govDataDetails">数据详情:</label>
+            <input type="text" id="govDataDetails"><br>
         </div>
     </div>
+
     <div class="section" id="volunteer-services">
         <h2>自愿者及服务管理</h2>
         <p>在此处添加自愿者及服务管理相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="addVolunteerService()">添加</button>
+            <button onclick="deleteVolunteerService()">删除</button>
+            <button onclick="updateVolunteerService()">修改</button>
+            <button onclick="queryVolunteerService()">查询</button>
+        </div>
+        <!-- 用于输入自愿者及服务信息的表单 -->
+        <div id="addVolunteerServiceForm">
+            <label for="volunteerName">自愿者姓名:</label>
+            <input type="text" id="volunteerName"><br>
+            <label for="serviceDetails">服务详情:</label>
+            <input type="text" id="serviceDetails"><br>
         </div>
     </div>
-    <div class="section" id="data-review">
-        <h2>各类上报数据审核管理</h2>
-        <p>在此处添加各类上报数据审核管理相关内容。</p>
+
+    <div class="section" id="member-registration">
+        <h2>会员注册</h2>
+        <p>在此处添加会员注册相关内容。</p>
         <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
-        </div>
-    </div>
-    <div class="section" id="market-management">
-        <h2>交易市场管理</h2>
-        <p>在此处添加交易市场管理相关内容。</p>
-        <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
-        </div>
-    </div>
-    <div class="section" id="transaction-management">
-        <h2>交易管理</h2>
-        <p>在此处添加交易管理相关内容。</p>
-        <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
-        </div>
-    </div>
-    <div class="section" id="other-management">
-        <h2>其他管理</h2>
-        <p>在此处添加其他管理相关内容。</p>
-        <div class="buttons">
-            <button onclick="addFunction()">添加</button>
-            <button onclick="deleteFunction()">删除</button>
-            <button onclick="queryFunction()">查询</button>
+            <button onclick="registerFunction()">注册</button>
+            <button onclick="loginFunction()">登入</button>
         </div>
     </div>
 </div>
@@ -195,16 +248,628 @@
         activeSection.classList.add('active');
     }
 
-    function addFunction() {
-        alert("添加功能尚未实现。");
+    function addSupplier() {
+        const supplier = {
+            name: document.getElementById("name").value,
+            address: document.getElementById("address").value,
+            contactNumber: document.getElementById("contactNumber").value,
+            email: document.getElementById("email").value,
+            companyName: document.getElementById("companyName").value
+        };
+
+        fetch('/suppliers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(supplier),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("供应商添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
-    function deleteFunction() {
-        alert("删除功能尚未实现。");
+    function deleteSupplier() {
+        const id = prompt("请输入要删除的供应商ID:");
+        fetch(`/suppliers/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("供应商删除成功！");
+                } else {
+                    alert("供应商删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
-    function queryFunction() {
-        alert("查询功能尚未实现。");
+    function updateSupplier() {
+        const id = prompt("请输入要修改的供应商ID:");
+        const supplier = {
+            name: prompt("请输入新的姓名:"),
+            address: prompt("请输入新的地址:"),
+            contactNumber: prompt("请输入新的联系电话:"),
+            email: prompt("请输入新的电子邮件:"),
+            companyName: prompt("请输入新的公司名称:")
+        };
+
+        fetch(`/suppliers/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(supplier),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("供应商修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function querySupplier() {
+        const id = prompt("请输入要查询的供应商ID:");
+        fetch(`/suppliers/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`供应商信息: \n姓名: ${data.name}\n地址: ${data.address}\n联系电话: ${data.contactNumber}\n电子邮件: ${data.email}\n公司名称: ${data.companyName}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addBuyer() {
+        const buyer = {
+            name: document.getElementById("buyerName").value,
+            contactNumber: document.getElementById("buyerContactNumber").value,
+            email: document.getElementById("buyerEmail").value
+        };
+
+        fetch('/buyers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(buyer),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("采购商添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deleteBuyer() {
+        const id = prompt("请输入要删除的采购商ID:");
+        fetch(`/buyers/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("采购商删除成功！");
+                } else {
+                    alert("采购商删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateBuyer() {
+        const id = prompt("请输入要修改的采购商ID:");
+        const buyer = {
+            name: prompt("请输入新的姓名:"),
+            contactNumber: prompt("请输入新的联系电话:"),
+            email: prompt("请输入新的电子邮件:")
+        };
+
+        fetch(`/buyers/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(buyer),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("采购商修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryBuyer() {
+        const id = prompt("请输入要查询的采购商ID:");
+        fetch(`/buyers/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`采购商信息: \n姓名: ${data.name}\n联系电话: ${data.contactNumber}\n电子邮件: ${data.email}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addFarmingInfo() {
+        const farmingInfo = {
+            name: document.getElementById("farmingName").value,
+            details: document.getElementById("farmingDetails").value
+        };
+
+        fetch('/farming-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(farmingInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("养殖信息添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deleteFarmingInfo() {
+        const id = prompt("请输入要删除的养殖信息ID:");
+        fetch(`/farming-info/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("养殖信息删除成功！");
+                } else {
+                    alert("养殖信息删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateFarmingInfo() {
+        const id = prompt("请输入要修改的养殖信息ID:");
+        const farmingInfo = {
+            name: prompt("请输入新的养殖名称:"),
+            details: prompt("请输入新的养殖详情:")
+        };
+
+        fetch(`/farming-info/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(farmingInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("养殖信息修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryFarmingInfo() {
+        const id = prompt("请输入要查询的养殖信息ID:");
+        fetch(`/farming-info/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`养殖信息: \n养殖名称: ${data.name}\n养殖详情: ${data.details}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addPurchaseInfo() {
+        const purchaseInfo = {
+            title: document.getElementById("purchaseTitle").value,
+            details: document.getElementById("purchaseDetails").value
+        };
+
+        fetch('/purchase-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(purchaseInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("采购信息添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deletePurchaseInfo() {
+        const id = prompt("请输入要删除的采购信息ID:");
+        fetch(`/purchase-info/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("采购信息删除成功！");
+                } else {
+                    alert("采购信息删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updatePurchaseInfo() {
+        const id = prompt("请输入要修改的采购信息ID:");
+        const purchaseInfo = {
+            title: prompt("请输入新的采购标题:"),
+            details: prompt("请输入新的采购详情:")
+        };
+
+        fetch(`/purchase-info/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(purchaseInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("采购信息修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryPurchaseInfo() {
+        const id = prompt("请输入要查询的采购信息ID:");
+        fetch(`/purchase-info/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`采购信息: \n采购标题: ${data.title}\n采购详情: ${data.details}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addHelpInfo() {
+        const helpInfo = {
+            title: document.getElementById("helpTitle").value,
+            details: document.getElementById("helpDetails").value
+        };
+
+        fetch('/help-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(helpInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("帮助信息添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deleteHelpInfo() {
+        const id = prompt("请输入要删除的帮助信息ID:");
+        fetch(`/help-info/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("帮助信息删除成功！");
+                } else {
+                    alert("帮助信息删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateHelpInfo() {
+        const id = prompt("请输入要修改的帮助信息ID:");
+        const helpInfo = {
+            title: prompt("请输入新的帮助标题:"),
+            details: prompt("请输入新的帮助详情:")
+        };
+
+        fetch(`/help-info/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(helpInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("帮助信息修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryHelpInfo() {
+        const id = prompt("请输入要查询的帮助信息ID:");
+        fetch(`/help-info/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`帮助信息: \n帮助标题: ${data.title}\n帮助详情: ${data.details}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addNewsEvent() {
+        const newsEvent = {
+            title: document.getElementById("newsTitle").value,
+            details: document.getElementById("newsDetails").value
+        };
+
+        fetch('/news-events', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newsEvent),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("资讯添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deleteNewsEvent() {
+        const id = prompt("请输入要删除的资讯ID:");
+        fetch(`/news-events/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("资讯删除成功！");
+                } else {
+                    alert("资讯删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateNewsEvent() {
+        const id = prompt("请输入要修改的资讯ID:");
+        const newsEvent = {
+            title: prompt("请输入新的资讯标题:"),
+            details: prompt("请输入新的资讯详情:")
+        };
+
+        fetch(`/news-events/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newsEvent),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("资讯修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryNewsEvent() {
+        const id = prompt("请输入要查询的资讯ID:");
+        fetch(`/news-events/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`资讯信息: \n资讯标题: ${data.title}\n资讯详情: ${data.details}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addGovData() {
+        const govData = {
+            title: document.getElementById("govDataTitle").value,
+            details: document.getElementById("govDataDetails").value
+        };
+
+        fetch('/gov-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(govData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("政府数据添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deleteGovData() {
+        const id = prompt("请输入要删除的政府数据ID:");
+        fetch(`/gov-data/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("政府数据删除成功！");
+                } else {
+                    alert("政府数据删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateGovData() {
+        const id = prompt("请输入要修改的政府数据ID:");
+        const govData = {
+            title: prompt("请输入新的政府数据标题:"),
+            details: prompt("请输入新的政府数据详情:")
+        };
+
+        fetch(`/gov-data/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(govData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("政府数据修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryGovData() {
+        const id = prompt("请输入要查询的政府数据ID:");
+        fetch(`/gov-data/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`政府数据信息: \n数据标题: ${data.title}\n数据详情: ${data.details}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function addVolunteerService() {
+        const volunteerService = {
+            name: document.getElementById("volunteerName").value,
+            details: document.getElementById("serviceDetails").value
+        };
+
+        fetch('/volunteer-services', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(volunteerService),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("自愿者及服务添加成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function deleteVolunteerService() {
+        const id = prompt("请输入要删除的自愿者及服务ID:");
+        fetch(`/volunteer-services/${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("自愿者及服务删除成功！");
+                } else {
+                    alert("自愿者及服务删除失败！");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateVolunteerService() {
+        const id = prompt("请输入要修改的自愿者及服务ID:");
+        const volunteerService = {
+            name: prompt("请输入新的自愿者姓名:"),
+            details: prompt("请输入新的服务详情:")
+        };
+
+        fetch(`/volunteer-services/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(volunteerService),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert("自愿者及服务修改成功！");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function queryVolunteerService() {
+        const id = prompt("请输入要查询的自愿者及服务ID:");
+        fetch(`/volunteer-services/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                alert(`自愿者及服务信息: \n自愿者姓名: ${data.name}\n服务详情: ${data.details}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function registerFunction() {
+        window.location.href = "./register.html"; // 假设你有一个名为register.html的注册页面
+    }
+
+    function loginFunction() {
+        window.location.href = "./login.html"; // 假设你有一个名为login.html的登入页面
     }
 
     // 默认显示第一个部分
@@ -213,5 +878,3 @@
 
 </body>
 </html>
-
-
