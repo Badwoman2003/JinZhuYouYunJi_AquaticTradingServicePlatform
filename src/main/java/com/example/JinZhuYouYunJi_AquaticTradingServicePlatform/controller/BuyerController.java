@@ -34,6 +34,8 @@ public class BuyerController {
             existingBuyer.setContactNumber(buyer.getContactNumber());
             existingBuyer.setEmail(buyer.getEmail());
             existingBuyer.setCompanyName(buyer.getCompanyName());
+            existingBuyer.setRegistrationDate(buyer.getRegistrationDate());
+            existingBuyer.setRemarks(buyer.getRemarks());
             return buyerRepository.save(existingBuyer);
         } else {
             throw new RuntimeException("Buyer not found");

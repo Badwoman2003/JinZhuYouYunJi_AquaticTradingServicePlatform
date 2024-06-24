@@ -2,7 +2,7 @@ package com.example.JinZhuYouYunJi_AquaticTradingServicePlatform.model;
 
 import java.util.Date;
 
-public class AquacultureInfo {
+public class FarmingInfo {
 
     // 主键ID
     private Long id;
@@ -29,10 +29,10 @@ public class AquacultureInfo {
     private String remarks;
 
     // 构造函数
-    public AquacultureInfo() {
+    public FarmingInfo() {
     }
 
-    public AquacultureInfo(Long id, String farmerName, String species, String scale, String location, String contactNumber, Date startDate, String remarks) {
+    public FarmingInfo(Long id, String farmerName, String species, String scale, String location, String contactNumber, Date startDate, String remarks) {
         this.id = id;
         this.farmerName = farmerName;
         this.species = species;

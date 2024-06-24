@@ -5,7 +5,10 @@ import com.example.JinZhuYouYunJi_AquaticTradingServicePlatform.respository.Supp
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 @RestController
 @RequestMapping("/suppliers")
@@ -16,6 +19,18 @@ public class SupplierController {
 
     @PostMapping
     public Supplier addSupplier(@RequestBody Supplier supplier) {
+
+        List<Long> existingIds = supplierRepository.findAll().stream()
+                .map(Supplier::getId)
+                .sorted()
+                .toList();
+
+        Long newId = LongStream.iterate(1, i -> i + 1)
+                .filter(id -> !existingIds.contains(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("未找到可用的ID"));
+
+        supplier.setId(newId);
         return supplierRepository.save(supplier);
     }
 

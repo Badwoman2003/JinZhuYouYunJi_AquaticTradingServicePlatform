@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,10 +113,18 @@
         <div id="addBuyerForm">
             <label for="buyerName">姓名:</label>
             <input type="text" id="buyerName"><br>
+            <label for="buyerAddress">地址:</label>
+            <input type="text" id="buyerAddress"><br>
             <label for="buyerContactNumber">联系电话:</label>
             <input type="text" id="buyerContactNumber"><br>
             <label for="buyerEmail">电子邮件:</label>
             <input type="text" id="buyerEmail"><br>
+            <label for="buyerCompanyName">公司名称:</label>
+            <input type="text" id="buyerCompanyName"><br>
+            <label for="buyerRegistrationDate">注册日期:</label>
+            <input type="text" id="buyerRegistrationDate"><br>
+            <label for="buyerRemarks">备注:</label>
+            <input type="text" id="buyerRemarks"><br>
         </div>
     </div>
 
@@ -131,10 +139,20 @@
         </div>
         <!-- 用于输入养殖信息的表单 -->
         <div id="addFarmingInfoForm">
-            <label for="farmingName">养殖名称:</label>
-            <input type="text" id="farmingName"><br>
-            <label for="farmingDetails">养殖详情:</label>
-            <input type="text" id="farmingDetails"><br>
+            <label for="farmerName">养殖户名称:</label>
+            <input type="text" id="farmerName"><br>
+            <label for="farmingSpecies">养殖种类:</label>
+            <input type="text" id="farmingSpecies"><br>
+            <label for="farmerScale">养殖规模</label>
+            <input type="text" id ="farmerScale"><br>
+            <label for="farmerLocation">养殖地点</label>
+            <input type="text" id = "farmerLocation"><br>
+            <label for="farmerContactNumber">联系电话</label>
+            <input type="text" id="farmerContactNumber"><br>
+            <label for="farmerStartDate">开始日期</label>
+            <input type="text" id = "farmerStartDate"><br>
+            <label for="farmerRemarks">备注</label>
+            <input type="text" id="farmerRemarks"><br>
         </div>
     </div>
 
@@ -149,11 +167,30 @@
         </div>
         <!-- 用于输入采购信息的表单 -->
         <div id="addPurchaseInfoForm">
-            <label for="purchaseTitle">采购标题:</label>
+            <label for="purchaseTitle">采购信息标题:</label>
             <input type="text" id="purchaseTitle"><br>
-            <label for="purchaseDetails">采购详情:</label>
-            <input type="text" id="purchaseDetails"><br>
+            <label for="productName">采购商品名称:</label>
+            <input type="text" id="productName"><br>
+            <label for="quantity">采购数量:</label>
+            <input type="number" id="quantity"><br>
+            <label for="unit">单位:</label>
+            <input type="text" id="unit"><br>
+            <label for="description">采购描述:</label>
+            <input type="text" id="description"><br>
+            <label for="releaseDate">发布日期:</label>
+            <input type="date" id="releaseDate"><br>
+            <label for="deadline">截止日期:</label>
+            <input type="date" id="deadline"><br>
+            <label for="contactPerson">联系人:</label>
+            <input type="text" id="contactPerson"><br>
+            <label for="PurchaseContactNumber">联系电话:</label>
+            <input type="tel" id="PurchaseContactNumber"><br>
+            <label for="link">相关链接:</label>
+            <input type="url" id="link"><br>
+            <label for="PurchaseRemarks">备注:</label>
+            <input type="text" id="PurchaseRemarks"><br>
         </div>
+
     </div>
 
     <div class="section" id="help-info">
@@ -333,8 +370,13 @@
     function addBuyer() {
         const buyer = {
             name: document.getElementById("buyerName").value,
+            companyName:document.getElementById("buyerCompanyName").value,
             contactNumber: document.getElementById("buyerContactNumber").value,
-            email: document.getElementById("buyerEmail").value
+            email: document.getElementById("buyerEmail").value,
+            address:document.getElementById("buyerAddress").value,
+            registrationDate:document.getElementById("buyerRegistrationDate").value,
+            remarks:document.getElementById("buyerRemarks").value
+
         };
 
         fetch('/buyers', {
@@ -375,8 +417,12 @@
         const id = prompt("请输入要修改的采购商ID:");
         const buyer = {
             name: prompt("请输入新的姓名:"),
+            companyName:prompt("请输入新的公司名:"),
             contactNumber: prompt("请输入新的联系电话:"),
-            email: prompt("请输入新的电子邮件:")
+            email: prompt("请输入新的电子邮件:"),
+            address:prompt("请输入新的地址:"),
+            registrationDate:prompt("请输入新的注册日期:"),
+            remarks:prompt("请输入新的备注:")
         };
 
         fetch(`/buyers/${id}`, {
@@ -452,7 +498,12 @@
         const id = prompt("请输入要修改的养殖信息ID:");
         const farmingInfo = {
             name: prompt("请输入新的养殖名称:"),
-            details: prompt("请输入新的养殖详情:")
+            species:prompt("请输入新的养殖种类:"),
+            scale:prompt("请输入新的养殖规模:"),
+            location:prompt("请输入新的养殖地点:"),
+            contactNumber:prompt("请输入新的联系电话:"),
+            startDate:prompt("请输入新的养殖开始日期:"),
+            remarks:prompt("请输入新的备注:")
         };
 
         fetch(`/farming-info/${id}`, {
@@ -487,8 +538,18 @@
     function addPurchaseInfo() {
         const purchaseInfo = {
             title: document.getElementById("purchaseTitle").value,
-            details: document.getElementById("purchaseDetails").value
+            productName: document.getElementById("productName").value,
+            quantity: document.getElementById("quantity").value,
+            unit: document.getElementById("unit").value,
+            description: document.getElementById("description").value,
+            releaseDate: document.getElementById("releaseDate").value,
+            deadline: document.getElementById("deadline").value,
+            contactPerson: document.getElementById("contactPerson").value,
+            contactNumber: document.getElementById("PurchaseContactNumber").value,
+            link: document.getElementById("link").value,
+            remarks: document.getElementById("PurchaseRemarks").value
         };
+
 
         fetch('/purchase-info', {
             method: 'POST',
@@ -527,9 +588,19 @@
     function updatePurchaseInfo() {
         const id = prompt("请输入要修改的采购信息ID:");
         const purchaseInfo = {
-            title: prompt("请输入新的采购标题:"),
-            details: prompt("请输入新的采购详情:")
+            title: prompt("请输入新的采购信息标题:"),
+            productName: prompt("请输入采购商品名称:"),
+            quantity: prompt("请输入采购数量:"),
+            unit: prompt("请输入单位:"),
+            description: prompt("请输入采购描述:"),
+            releaseDate: prompt("请输入发布日期 (格式: YYYY-MM-DD):"),
+            deadline: prompt("请输入截止日期 (格式: YYYY-MM-DD):"),
+            contactPerson: prompt("请输入联系人:"),
+            contactNumber: prompt("请输入联系电话:"),
+            link: prompt("请输入相关链接:"),
+            remarks: prompt("请输入备注:")
         };
+
 
         fetch(`/purchase-info/${id}`, {
             method: 'PUT',

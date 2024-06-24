@@ -26,9 +26,9 @@ public class VolunteerServiceController {
 
     @PutMapping("/{id}")
     public VolunteerService updataVolunteerService(@RequestBody VolunteerService volunteerService, @PathVariable Long id){
-        Optional<VolunteerService> optionalvolunteerService = volunteerServiceRepository.findById(id);
-        if(optionalvolunteerService.isPresent()){
-            VolunteerService existVolunteerService = optionalvolunteerService.get();
+        Optional<VolunteerService> optionalVolunteerService = volunteerServiceRepository.findById(id);
+        if(optionalVolunteerService.isPresent()){
+            VolunteerService existVolunteerService = optionalVolunteerService.get();
             existVolunteerService.setVolunteerName(volunteerService.getVolunteerName());
             existVolunteerService.setServiceName(volunteerService.getServiceName());
             existVolunteerService.setDescription(volunteerService.getDescription());
@@ -46,9 +46,7 @@ public class VolunteerServiceController {
     }
 
     @PutMapping("{/id}")
-    public VolunteerService getVolunteerService(@PathVariable Long id){
+    public VolunteerService getVolunteerService(@PathVariable Long id) {
         return volunteerServiceRepository.findById(id).orElseThrow(() -> new RuntimeException("VolunteerService not found"));
     }
-
-
 }
